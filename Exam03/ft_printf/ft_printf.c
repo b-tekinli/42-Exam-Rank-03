@@ -34,11 +34,13 @@ int ft_printf(const char *str, ...)
     int count = 0;
     va_list list;
     va_start(list, str);
+
     while(*str)
     {
         if(*str == '%')
         {
             str++;
+
             if(*str == 's')
                 count += ft_putstr(va_arg(list, char*));
             else if(*str == 'd')
