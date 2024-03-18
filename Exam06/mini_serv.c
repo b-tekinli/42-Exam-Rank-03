@@ -35,22 +35,22 @@ int main(int ac, char **av)
 {
     if (ac != 2)
         ft_err("Wrong number arguments\n");
-    
+
     int sockfd;
     struct sockaddr_in servaddr, cli;
     socklen_t len;
-    
+
     // socket create and verification
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd == -1)
         ft_err("Fatal error\n");
     bzero(&servaddr, sizeof(servaddr));
-    
+
     // assign IP, PORT
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(2130706433); // 127.0.0.1
     servaddr.sin_port = htons(atoi(av[1]));
-    
+
     // Binding newly created socket to given IP and verification
     if ((bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr))) != 0)
         ft_err("Fatal error\n");
