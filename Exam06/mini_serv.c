@@ -27,7 +27,7 @@ void ft_err(const char *msg)
 void send_all(int not )
 {
     for (int i = 0; i <= max_fd; i++)
-        if (FD_ISSET(i, &write_sock) && i != not )
+        if (FD_ISSET(i, &write_sock) && i != not)
             send(i, buffer_write, strlen(buffer_write), 0);
 }
 
