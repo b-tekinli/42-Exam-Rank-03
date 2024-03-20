@@ -54,8 +54,10 @@ int main(int ac, char **av)
     // Binding newly created socket to given IP and verification
     if ((bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr))) != 0)
         ft_err("Fatal error\n");
+        
     if (listen(sockfd, 10) != 0)
         ft_err("Fatal error\n");
+
     len = sizeof(cli);
     max_fd = sockfd;
 
